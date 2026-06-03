@@ -1,62 +1,609 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Izzy's Commercial Awareness Daily Briefing</title><style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --ink:#1a1208; --soft:#5a4e3a; --faint:#9a8e78; --cream:#faf7f0; --rule:#e0d8c8; }
-  body { background:var(--cream); color:var(--ink); font-family:Georgia,serif; font-size:16px; line-height:1.7; min-height:100vh; }
-  .masthead { background:var(--ink); color:var(--cream); text-align:center; padding:2.5rem 1rem 2rem; }
-  .eyebrow { font-size:11px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(250,247,240,0.5); margin-bottom:0.75rem; }
-  .site-title { font-size:clamp(1.8rem,5vw,3rem); font-weight:700; line-height:1.1; color:var(--cream); }
-  .site-title em { font-style:italic; color:#e8b86d; }
-  .date-line { font-size:13px; color:rgba(250,247,240,0.5); margin-top:0.5rem; }
-  .rule { width:60px; height:1px; background:#e8b86d; margin:1rem auto 0; }
-  .wrap { max-width:780px; margin:0 auto; padding:0 1.25rem 4rem; }
-  .stats { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:1.25rem 0; border-bottom:1px solid var(--rule); margin-bottom:2rem; }
-  .stats-left { font-size:12px; color:var(--faint); }
-  .pills { display:flex; flex-wrap:wrap; gap:6px; }
-  .pill { font-size:11px; padding:3px 9px; border-radius:100px; }
-  .card { padding:1.75rem 0; border-bottom:1px solid var(--rule); }
-  .src { display:flex; align-items:center; gap:7px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.6rem; }
-  .dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
-  h2 { font-size:clamp(1.1rem,2.5vw,1.4rem); font-weight:600; line-height:1.3; color:var(--ink); margin-bottom:0.7rem; }
-  p { font-size:15px; color:var(--soft); line-height:1.75; margin-bottom:0.9rem; }
-  .meta { display:flex; align-items:center; gap:12px; margin-bottom:1rem; }
-  .tag { font-size:11px; padding:3px 9px; border-radius:100px; }
-  .when { font-size:12px; color:var(--faint); font-style:italic; }
-  .toggle-btn {
-    font-family:Georgia,serif; font-size:13px; color:var(--soft);
-    background:none; border:1px solid var(--rule); border-radius:6px;
-    padding:7px 14px; cursor:pointer; margin-bottom:0;
-    transition:background 0.15s;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Izzy's Commercial Awareness Briefing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --paper: #f7f4ee;
+    --cream: #ede9e0;
+    --rule: #c8c0b0;
+    --accent: #b5351a;
+    --tag-bg: #1a1a18;
+    --tag-fg: #f7f4ee;
+    --muted: #6b6457;
+    --card-bg: #ffffff;
   }
-  .toggle-btn:hover { background:var(--rule); }
-  .analysis-panel { margin-top:1.25rem; }
-  .analysis-section { margin-bottom:1.5rem; }
-  .analysis-title { font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--faint); margin-bottom:0.75rem; }
-  .swot-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .swot-cell { padding:12px 14px; border-radius:8px; border:1px solid transparent; }
-  .swot-label { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:5px; }
-  .swot-text { font-size:13px; line-height:1.55; }
-  .pestle-list { display:flex; flex-direction:column; gap:8px; }
-  .pestle-row { display:flex; align-items:flex-start; gap:12px; }
-  .pestle-letter { width:28px; height:28px; border-radius:50%; color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
-  .pestle-label { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin-bottom:2px; }
-  .pestle-text { font-size:13px; color:var(--soft); line-height:1.55; }
-  footer { text-align:center; padding:2rem 1rem; font-size:12px; color:var(--faint); border-top:1px solid var(--rule); margin-top:2rem; font-style:italic; }
-  @media(max-width:540px) { .swot-grid { grid-template-columns:1fr; } }
-</style></head><body><header class="masthead"><p class="eyebrow">Commercial Awareness</p><h1 class="site-title"><em>Izzy's</em> Daily Briefing</h1><p class="date-line">Wednesday 03 June 2026</p><div class="rule"></div></header><div class="wrap"><div class="stats"><span class="stats-left">5 stories &middot; 5 sources</span><div class="pills"><span class="pill" style="background:#E6F1FB;color:#0C447C;">2 M&A</span>
-<span class="pill" style="background:#E1F5EE;color:#085041;">1 Markets</span>
-<span class="pill" style="background:#FAEEDA;color:#633806;">2 Regulation</span></div></div><section><article class="card"><div class="src" style="color:#EB6600"><span class="dot" style="background:#EB6600"></span>Reuters / City A.M.</div><h2>FTSE 100 falls as Iran peace talks collapse and oil surges</h2><p>The FTSE 100 dropped 70 points to 10,338 on Monday after Iran walked away from ceasefire negotiations with the US, sending oil prices up more than 6%. Mining stocks led the decline with Fresnillo and Endeavour Mining down nearly 3%, while defence stocks BAE Systems and Rolls Royce also fell. Oil majors Shell and BP bucked the trend gaining around 1%.</p><div class="meta"><span class="tag" style="background:#E1F5EE;color:#085041;">Markets</span><span class="when">Yesterday</span></div><button class="toggle-btn" onclick="toggleAnalysis('analysis-1', this)">&#9654; Show SWOT &amp; PESTLE analysis</button><div class="analysis-panel" id="analysis-1" style="display:none;"><div class="analysis-section"><div class="analysis-title">SWOT Analysis</div><div class="swot-grid"><div class="swot-cell" style="background:#EAF3DE;color:#27500A;border-color:#C0DD97;"><div class="swot-label">Strengths</div><div class="swot-text">UK oil majors Shell and BP well-positioned to benefit from higher oil prices through increased revenues and margins.</div></div><div class="swot-cell" style="background:#FCEBEB;color:#A32D2D;border-color:#F7C1C1;"><div class="swot-label">Weaknesses</div><div class="swot-text">FTSE 100 heavily weighted toward mining and defence stocks, making it vulnerable to geopolitical shocks.</div></div><div class="swot-cell" style="background:#E6F1FB;color:#0C447C;border-color:#B5D4F4;"><div class="swot-label">Opportunities</div><div class="swot-text">Rising oil prices create advisory and financing opportunities for law firms with energy practices.</div></div><div class="swot-cell" style="background:#FAEEDA;color:#633806;border-color:#FAC775;"><div class="swot-label">Threats</div><div class="swot-text">Prolonged conflict risks a global recession, reduced deal activity, and supply chain disruption for UK businesses.</div></div></div></div><div class="analysis-section"><div class="analysis-title">PESTLE Analysis</div><div class="pestle-list"><div class="pestle-row"><div class="pestle-letter" style="background:#534AB7">P</div><div class="pestle-content"><div class="pestle-label">Political</div><div class="pestle-text">US-Iran breakdown signals renewed Middle East instability with no clear diplomatic resolution in sight.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#0F6E56">E</div><div class="pestle-content"><div class="pestle-label">Economic</div><div class="pestle-text">Oil price spike of 6% in one day raises inflation fears and could prompt central bank intervention.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#185FA5">S</div><div class="pestle-content"><div class="pestle-label">Social</div><div class="pestle-text">Energy price rises hit consumers and businesses, increasing cost-of-living pressures in the UK.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#BA7517">T</div><div class="pestle-content"><div class="pestle-label">Technological</div><div class="pestle-text">Energy transition investments may accelerate as price volatility highlights dependence on fossil fuels.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#A32D2D">L</div><div class="pestle-content"><div class="pestle-label">Legal</div><div class="pestle-text">Sanctions regimes on Iran may be tightened, creating compliance obligations for UK businesses with exposure.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#27500A">E</div><div class="pestle-content"><div class="pestle-label">Environmental</div><div class="pestle-text">Higher oil prices may paradoxically speed up renewable energy adoption as alternatives become more competitive.</div></div></div></div></div></div></article>
-<article class="card"><div class="src" style="color:#888888"><span class="dot" style="background:#888888"></span>Law Gazette / Legal Cheek</div><h2>Pinsent Masons self-reports to SRA after junior lawyer submits AI-hallucinated case law to High Court</h2><p>A junior solicitor at Pinsent Masons used AI to draft two letters to the High Court in an insolvency matter both containing fabricated legal references. Judge Mullen found the firm had misled the court twice and the lawyer had almost entirely outsourced the thinking process to AI. The firm self-referred itself and three solicitors to the SRA making it the second top-tier UK firm to face SRA scrutiny over AI misuse this year.</p><div class="meta"><span class="tag" style="background:#FAEEDA;color:#633806;">Regulation</span><span class="when">This week</span></div><button class="toggle-btn" onclick="toggleAnalysis('analysis-2', this)">&#9654; Show SWOT &amp; PESTLE analysis</button><div class="analysis-panel" id="analysis-2" style="display:none;"><div class="analysis-section"><div class="analysis-title">SWOT Analysis</div><div class="swot-grid"><div class="swot-cell" style="background:#EAF3DE;color:#27500A;border-color:#C0DD97;"><div class="swot-label">Strengths</div><div class="swot-text">Pinsent Masons acted swiftly by self-reporting, which may limit reputational and regulatory damage.</div></div><div class="swot-cell" style="background:#FCEBEB;color:#A32D2D;border-color:#F7C1C1;"><div class="swot-label">Weaknesses</div><div class="swot-text">Failure of supervision at multiple levels exposes systemic governance gaps in AI use at the firm.</div></div><div class="swot-cell" style="background:#E6F1FB;color:#0C447C;border-color:#B5D4F4;"><div class="swot-label">Opportunities</div><div class="swot-text">Firms that invest in robust AI oversight frameworks now will gain a competitive advantage in client trust.</div></div><div class="swot-cell" style="background:#FAEEDA;color:#633806;border-color:#FAC775;"><div class="swot-label">Threats</div><div class="swot-text">SRA scrutiny could result in fines, conditions on practice, or reputational damage affecting client retention.</div></div></div></div><div class="analysis-section"><div class="analysis-title">PESTLE Analysis</div><div class="pestle-list"><div class="pestle-row"><div class="pestle-letter" style="background:#534AB7">P</div><div class="pestle-content"><div class="pestle-label">Political</div><div class="pestle-text">Government pressure on regulators to address AI risks in professional services is likely to intensify.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#0F6E56">E</div><div class="pestle-content"><div class="pestle-label">Economic</div><div class="pestle-text">Firms face rising costs of implementing AI governance frameworks, training, and compliance infrastructure.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#185FA5">S</div><div class="pestle-content"><div class="pestle-label">Social</div><div class="pestle-text">Public and client confidence in legal AI tools is undermined when high-profile failures reach the courts.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#BA7517">T</div><div class="pestle-content"><div class="pestle-label">Technological</div><div class="pestle-text">AI hallucination remains an unsolved technical problem, meaning human verification is still essential.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#A32D2D">L</div><div class="pestle-content"><div class="pestle-label">Legal</div><div class="pestle-text">SRA may introduce mandatory AI disclosure protocols and supervision requirements across all firms.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#27500A">E</div><div class="pestle-content"><div class="pestle-label">Environmental</div><div class="pestle-text">No direct environmental dimension, though paperless AI-driven practices do reduce physical resource use.</div></div></div></div></div></div></article>
-<article class="card"><div class="src" style="color:#888888"><span class="dot" style="background:#888888"></span>Travers Smith / Fieldfisher</div><h2>Crime and Policing Act 2026 brings biggest shake-up to UK corporate criminal liability in a century</h2><p>Coming into force on 29 June 2026 the Act extends the senior manager attribution model to all criminal offences not just economic crime. Previously companies could only be prosecuted where the offence was committed by someone at the very top. Now any senior manager acting within their authority can trigger corporate criminal liability meaning businesses must urgently review governance structures.</p><div class="meta"><span class="tag" style="background:#FAEEDA;color:#633806;">Regulation</span><span class="when">This week</span></div><button class="toggle-btn" onclick="toggleAnalysis('analysis-3', this)">&#9654; Show SWOT &amp; PESTLE analysis</button><div class="analysis-panel" id="analysis-3" style="display:none;"><div class="analysis-section"><div class="analysis-title">SWOT Analysis</div><div class="swot-grid"><div class="swot-cell" style="background:#EAF3DE;color:#27500A;border-color:#C0DD97;"><div class="swot-label">Strengths</div><div class="swot-text">The Act creates a more level playing field by making it easier to prosecute large corporations for criminal conduct.</div></div><div class="swot-cell" style="background:#FCEBEB;color:#A32D2D;border-color:#F7C1C1;"><div class="swot-label">Weaknesses</div><div class="swot-text">Broad scope creates legal uncertainty for businesses trying to define who counts as a senior manager.</div></div><div class="swot-cell" style="background:#E6F1FB;color:#0C447C;border-color:#B5D4F4;"><div class="swot-label">Opportunities</div><div class="swot-text">Significant new advisory work for law firms helping clients with governance reviews, risk assessments and compliance frameworks.</div></div><div class="swot-cell" style="background:#FAEEDA;color:#633806;border-color:#FAC775;"><div class="swot-label">Threats</div><div class="swot-text">Businesses face materially greater criminal exposure across all operations, not just financial crime.</div></div></div></div><div class="analysis-section"><div class="analysis-title">PESTLE Analysis</div><div class="pestle-list"><div class="pestle-row"><div class="pestle-letter" style="background:#534AB7">P</div><div class="pestle-content"><div class="pestle-label">Political</div><div class="pestle-text">Reflects government determination to crack down on corporate crime following years of criticism that large firms escaped prosecution.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#0F6E56">E</div><div class="pestle-content"><div class="pestle-label">Economic</div><div class="pestle-text">Compliance costs will rise significantly for large organisations, particularly in regulated sectors like financial services.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#185FA5">S</div><div class="pestle-content"><div class="pestle-label">Social</div><div class="pestle-text">Greater corporate accountability may improve public trust in business and deter wrongdoing at senior levels.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#BA7517">T</div><div class="pestle-content"><div class="pestle-label">Technological</div><div class="pestle-text">Firms will invest in compliance technology and AI monitoring tools to track senior manager conduct.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#A32D2D">L</div><div class="pestle-content"><div class="pestle-label">Legal</div><div class="pestle-text">Dismantles the historic directing mind doctrine, fundamentally reshaping how corporate liability is attributed in English law.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#27500A">E</div><div class="pestle-content"><div class="pestle-label">Environmental</div><div class="pestle-text">Environmental offences committed by senior managers could now more easily trigger corporate criminal liability.</div></div></div></div></div></div></article>
-<article class="card"><div class="src" style="color:#888888"><span class="dot" style="background:#888888"></span>AJ Bell / Proactive Investors</div><h2>UK M&amp;A boom continues as FTSE 100 attracts fourth takeover bid of 2026</h2><p>DCC the Irish energy specialist became the fourth FTSE 100 company to attract a takeover bid in 2026 after Beazley Schroders and Intertek. The bid from a US private equity consortium of KKR and Energy Capital values DCC at over 5 billion pounds taking total live bid value on UK-listed companies to nearly 30 billion pounds this year.</p><div class="meta"><span class="tag" style="background:#E6F1FB;color:#0C447C;">M&amp;A</span><span class="when">This week</span></div><button class="toggle-btn" onclick="toggleAnalysis('analysis-4', this)">&#9654; Show SWOT &amp; PESTLE analysis</button><div class="analysis-panel" id="analysis-4" style="display:none;"><div class="analysis-section"><div class="analysis-title">SWOT Analysis</div><div class="swot-grid"><div class="swot-cell" style="background:#EAF3DE;color:#27500A;border-color:#C0DD97;"><div class="swot-label">Strengths</div><div class="swot-text">UK equity market offers genuine value to acquirers, with FTSE 100 companies trading at a discount to US peers.</div></div><div class="swot-cell" style="background:#FCEBEB;color:#A32D2D;border-color:#F7C1C1;"><div class="swot-label">Weaknesses</div><div class="swot-text">High volume of inbound bids raises concerns about hollowing out of UK-listed companies and loss of domestic ownership.</div></div><div class="swot-cell" style="background:#E6F1FB;color:#0C447C;border-color:#B5D4F4;"><div class="swot-label">Opportunities</div><div class="swot-text">Law firms with M&amp;A practices face a sustained pipeline of transactional work across due diligence, financing and regulatory clearance.</div></div><div class="swot-cell" style="background:#FAEEDA;color:#633806;border-color:#FAC775;"><div class="swot-label">Threats</div><div class="swot-text">UK government may intervene on national security grounds, adding uncertainty and timeline risk to deals.</div></div></div></div><div class="analysis-section"><div class="analysis-title">PESTLE Analysis</div><div class="pestle-list"><div class="pestle-row"><div class="pestle-letter" style="background:#534AB7">P</div><div class="pestle-content"><div class="pestle-label">Political</div><div class="pestle-text">Government scrutiny of foreign takeovers of strategic UK assets is increasing under the National Security and Investment Act.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#0F6E56">E</div><div class="pestle-content"><div class="pestle-label">Economic</div><div class="pestle-text">Stable interest rates and compressed UK valuations relative to the US are the primary drivers of inbound deal activity.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#185FA5">S</div><div class="pestle-content"><div class="pestle-label">Social</div><div class="pestle-text">Public concern about foreign ownership of major UK employers may prompt political pressure for intervention.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#BA7517">T</div><div class="pestle-content"><div class="pestle-label">Technological</div><div class="pestle-text">Private equity buyers are particularly targeting technology and data-rich businesses within FTSE constituents.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#A32D2D">L</div><div class="pestle-content"><div class="pestle-label">Legal</div><div class="pestle-text">Each deal requires CMA competition clearance and potentially NSI Act review, creating complex multi-regulatory processes.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#27500A">E</div><div class="pestle-content"><div class="pestle-label">Environmental</div><div class="pestle-text">Energy sector deals like DCC attract additional scrutiny over transition plans and carbon commitments.</div></div></div></div></div></div></article>
-<article class="card"><div class="src" style="color:#185FA5"><span class="dot" style="background:#185FA5"></span>City A.M.</div><h2>EasyJet attracts US takeover interest as Drax acquires Bluefield Solar</h2><p>Reports emerged of potential US takeover interest in budget airline easyJet sending shares higher on Monday. Separately energy company Drax agreed to acquire Bluefield Solar Investment Trust continuing consolidation in the UK renewables sector. Both deals reflect ongoing appetite from overseas buyers for undervalued London-listed assets.</p><div class="meta"><span class="tag" style="background:#E6F1FB;color:#0C447C;">M&amp;A</span><span class="when">Yesterday</span></div><button class="toggle-btn" onclick="toggleAnalysis('analysis-5', this)">&#9654; Show SWOT &amp; PESTLE analysis</button><div class="analysis-panel" id="analysis-5" style="display:none;"><div class="analysis-section"><div class="analysis-title">SWOT Analysis</div><div class="swot-grid"><div class="swot-cell" style="background:#EAF3DE;color:#27500A;border-color:#C0DD97;"><div class="swot-label">Strengths</div><div class="swot-text">EasyJet has strong brand recognition and route network making it an attractive acquisition target for US carriers seeking European exposure.</div></div><div class="swot-cell" style="background:#FCEBEB;color:#A32D2D;border-color:#F7C1C1;"><div class="swot-label">Weaknesses</div><div class="swot-text">Aviation sector faces ongoing cost pressures from fuel prices and slot constraints at major UK airports.</div></div><div class="swot-cell" style="background:#E6F1FB;color:#0C447C;border-color:#B5D4F4;"><div class="swot-label">Opportunities</div><div class="swot-text">Drax acquisition of Bluefield Solar positions it well for the UK energy transition and future green subsidy regimes.</div></div><div class="swot-cell" style="background:#FAEEDA;color:#633806;border-color:#FAC775;"><div class="swot-label">Threats</div><div class="swot-text">Any easyJet deal would face significant regulatory hurdles around foreign ownership of EU aviation licences post-Brexit.</div></div></div></div><div class="analysis-section"><div class="analysis-title">PESTLE Analysis</div><div class="pestle-list"><div class="pestle-row"><div class="pestle-letter" style="background:#534AB7">P</div><div class="pestle-content"><div class="pestle-label">Political</div><div class="pestle-text">Post-Brexit aviation rules restrict foreign ownership of EU operating licences, complicating any US takeover of easyJet.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#0F6E56">E</div><div class="pestle-content"><div class="pestle-label">Economic</div><div class="pestle-text">Rising oil prices increase easyJet operating costs, potentially reducing its standalone value and making a deal more attractive.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#185FA5">S</div><div class="pestle-content"><div class="pestle-label">Social</div><div class="pestle-text">Consumer demand for affordable short-haul travel remains robust, underpinning easyJet's strategic value.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#BA7517">T</div><div class="pestle-content"><div class="pestle-label">Technological</div><div class="pestle-text">Bluefield Solar acquisition reflects Drax's pivot toward technology-driven renewable energy assets.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#A32D2D">L</div><div class="pestle-content"><div class="pestle-label">Legal</div><div class="pestle-text">EU aviation ownership rules and CMA review would both need to be navigated in any easyJet transaction.</div></div></div><div class="pestle-row"><div class="pestle-letter" style="background:#27500A">E</div><div class="pestle-content"><div class="pestle-label">Environmental</div><div class="pestle-text">Drax renewables consolidation directly supports UK net zero targets and may attract favourable regulatory treatment.</div></div></div></div></div></div></article></section></div><footer>Izzy's Commercial Awareness Daily Briefing &middot; Generated 03 June 2026 at 13:45 &middot; Always verify with original sources.</footer><script>
-  function toggleAnalysis(id, btn) {
-    var panel = document.getElementById(id);
-    if (panel.style.display === 'none') {
-      panel.style.display = 'block';
-      btn.textContent = '\u25BC Hide SWOT & PESTLE analysis';
-    } else {
-      panel.style.display = 'none';
-      btn.innerHTML = '&#9654; Show SWOT &amp; PESTLE analysis';
-    }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
   }
-</script></body></html>
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 2rem 1rem 1.5rem;
+    border-bottom: 4px solid var(--accent);
+  }
+  .masthead-kicker {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rule);
+    margin-bottom: 0.5rem;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .masthead-date {
+    margin-top: 0.6rem;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--rule);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TABS ── */
+  .tab-bar {
+    background: var(--cream);
+    border-bottom: 2px solid var(--rule);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    padding: 0 1.5rem;
+  }
+  .tab-btn {
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* ── MAIN ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .edition-header {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .edition-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .edition-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-top: 0.3rem;
+  }
+
+  /* ── STORY CARD ── */
+  .story-card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--ink);
+    margin-bottom: 2rem;
+    padding: 1.75rem 2rem 1.5rem;
+    border-radius: 2px;
+  }
+  .story-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+    flex-wrap: wrap;
+  }
+  .story-tag {
+    background: var(--tag-bg);
+    color: var(--tag-fg);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .story-source {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .story-recency {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-left: auto;
+  }
+  .story-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .story-summary {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.75;
+  }
+
+  /* ── ANALYSIS TOGGLE ── */
+  .analysis-toggle {
+    margin-top: 1.25rem;
+    background: none;
+    border: 1px solid var(--rule);
+    padding: 0.5rem 1rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .analysis-toggle:hover { background: var(--cream); color: var(--ink); }
+  .analysis-toggle .arrow { transition: transform 0.2s; display: inline-block; }
+  .analysis-toggle.open .arrow { transform: rotate(90deg); }
+
+  /* ── ANALYSIS PANEL ── */
+  .analysis-panel {
+    display: none;
+    margin-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+  }
+  .analysis-panel.open { display: block; }
+
+  .analysis-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+  .atab-btn {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border: 1px solid var(--rule);
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.15s;
+  }
+  .atab-btn:hover { background: var(--cream); }
+  .atab-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .atab-panel { display: none; }
+  .atab-panel.active { display: block; }
+
+  /* ── SWOT GRID ── */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  @media (max-width: 600px) { .swot-grid { grid-template-columns: 1fr; } }
+  .swot-cell {
+    padding: 1rem 1.1rem;
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .swot-cell h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .swot-s { background: #eaf4ec; }
+  .swot-s h4 { color: #2d6a4f; }
+  .swot-w { background: #fef3ec; }
+  .swot-w h4 { color: #b5420a; }
+  .swot-o { background: #eaf0fb; }
+  .swot-o h4 { color: #1a4f8a; }
+  .swot-t { background: #fceef0; }
+  .swot-t h4 { color: #8a1a2a; }
+
+  /* ── PESTLE ── */
+  .pestle-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .pestle-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    padding: 0.75rem 1rem;
+    background: var(--cream);
+    border-radius: 2px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  @media (max-width: 600px) { .pestle-row { grid-template-columns: 1fr; } }
+  .pestle-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 2px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 12px;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-kicker">Commercial Awareness Daily</div>
+  <h1>Izzy's Briefing</h1>
+  <div class="masthead-date">Wednesday 3rd June 2026</div>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn" onclick="showTab('jun2')">2 Jun</button>
+  <button class="tab-btn active" onclick="showTab('jun3')">3 Jun</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  2 JUNE TAB                                                -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="tab-jun2">
+<div class="container">
+  <div class="edition-header">
+    <div class="edition-label">Edition</div>
+    <div class="edition-date">Tuesday 2nd June 2026</div>
+  </div>
+
+  <!-- STORY 1 -->
+  <div class="story-card">
+    <div class="story-meta">
+      <span class="story-tag">M&amp;A</span>
+      <span class="story-source">Reuters / Linklaters</span>
+      <span class="story-recency">Yesterday</span>
+    </div>
+    <div class="story-headline">Linklaters advises on $2.4bn I-MED Radiology acquisition by Jardine Matheson</div>
+    <div class="story-summary">Hong Kong conglomerate Jardine Matheson agreed to acquire Australian radiology giant I-MED for $2.4bn, advised by Linklaters. The deal is one of the largest healthcare M&amp;A transactions in the Asia-Pacific region this year and reflects continued appetite from Asian conglomerates for defensive, cash-generative healthcare assets amid global economic uncertainty.</div>
+    <button class="analysis-toggle" onclick="toggleAnalysis(this)"><span class="arrow">▶</span> Show SWOT &amp; PESTLE</button>
+    <div class="analysis-panel">
+      <div class="analysis-tabs">
+        <button class="atab-btn active" onclick="showAtab(this,'s1','swot')">SWOT</button>
+        <button class="atab-btn" onclick="showAtab(this,'s1','pestle')">PESTLE</button>
+      </div>
+      <div class="atab-panel active" id="s1-swot">
+        <div class="swot-grid">
+          <div class="swot-cell swot-s"><h4>Strengths</h4>Healthcare assets provide defensive, recession-resistant revenue. Jardine has strong balance sheet and experience operating regulated businesses across Asia-Pacific.</div>
+          <div class="swot-cell swot-w"><h4>Weaknesses</h4>Cross-border healthcare acquisitions carry significant integration risk. Jardine is a conglomerate acquiring outside its core competencies, which historically leads to underperformance.</div>
+          <div class="swot-cell swot-o"><h4>Opportunities</h4>Ageing populations across Asia-Pacific drive structural demand for radiology services. Linklaters and other Magic Circle firms gain major fee income from large cross-border healthcare M&amp;A.</div>
+          <div class="swot-cell swot-t"><h4>Threats</h4>Australian regulatory scrutiny (FIRB) of foreign healthcare acquisitions. Currency risk between HKD/AUD. Rising interest rates increase deal financing costs for large leveraged acquisitions.</div>
+        </div>
+      </div>
+      <div class="atab-panel" id="s1-pestle">
+        <div class="pestle-list">
+          <div class="pestle-row"><div class="pestle-label">Political</div><div>Australian foreign investment rules (FIRB) require approval for acquisitions of sensitive assets including healthcare. Political scrutiny of Hong Kong-linked buyers has intensified since 2020.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Economic</div><div>$2.4bn price tag reflects premium valuations for defensive healthcare assets. Rising deal financing costs due to higher interest rates squeeze returns on leveraged acquisitions.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Social</div><div>Growing demand for radiology driven by ageing demographics and rising chronic disease rates across the Asia-Pacific region. Public interest in foreign ownership of healthcare infrastructure is high.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Technological</div><div>AI-assisted radiology is transforming diagnostic imaging — acquirers must factor in technology investment requirements as part of deal valuation.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Legal</div><div>Linklaters advising on multi-jurisdictional deal structures, regulatory approvals, and competition clearances. Cross-border healthcare M&amp;A requires specialist knowledge of Australian, Hong Kong and UK regulatory frameworks.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Environmental</div><div>Medical imaging equipment is energy-intensive. ESG-conscious investors will scrutinise the carbon footprint of large radiology networks as part of post-acquisition due diligence.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 2 -->
+  <div class="story-card">
+    <div class="story-meta">
+      <span class="story-tag">Tech / AI</span>
+      <span class="story-source">FT / City AM</span>
+      <span class="story-recency">Yesterday</span>
+    </div>
+    <div class="story-headline">UK investors back £500m AI infrastructure fund as government pushes compute agenda</div>
+    <div class="story-summary">A consortium of UK institutional investors including pension funds and sovereign wealth vehicles committed £500m to a new AI infrastructure fund targeting data centres and compute capacity across the UK and Northern Europe. The deal follows the government's AI Opportunities Action Plan and signals that private capital is beginning to align with the state's industrial strategy around artificial intelligence.</div>
+    <button class="analysis-toggle" onclick="toggleAnalysis(this)"><span class="arrow">▶</span> Show SWOT &amp; PESTLE</button>
+    <div class="analysis-panel">
+      <div class="analysis-tabs">
+        <button class="atab-btn active" onclick="showAtab(this,'s2','swot')">SWOT</button>
+        <button class="atab-btn" onclick="showAtab(this,'s2','pestle')">PESTLE</button>
+      </div>
+      <div class="atab-panel active" id="s2-swot">
+        <div class="swot-grid">
+          <div class="swot-cell swot-s"><h4>Strengths</h4>Government backing reduces political risk. UK has strong existing financial infrastructure and legal frameworks attractive to institutional capital.</div>
+          <div class="swot-cell swot-w"><h4>Weaknesses</h4>AI infrastructure investment requires long time horizons; pension fund mandates may not align well with illiquid, long-duration assets. Compute demand is volatile and tied to AI model trends.</div>
+          <div class="swot-cell swot-o"><h4>Opportunities</h4>Law firms advising on fund structuring, real estate acquisition, and planning permissions for data centres will benefit. Freshfields, Clifford Chance, and Pinsent Masons are active in this space.</div>
+          <div class="swot-cell swot-t"><h4>Threats</h4>Energy costs and grid capacity constraints in the UK are a major bottleneck for data centre development. Competition from US and EU hyperscalers with larger balance sheets.</div>
+        </div>
+      </div>
+      <div class="atab-panel" id="s2-pestle">
+        <div class="pestle-list">
+          <div class="pestle-row"><div class="pestle-label">Political</div><div>The AI Opportunities Action Plan is a flagship government policy. Political support is strong but subject to change with future administrations. Planning reform is needed to accelerate data centre construction.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Economic</div><div>£500m signals serious institutional confidence in UK AI infrastructure. However, rising construction costs and energy prices compress projected returns.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Social</div><div>Data centres generate relatively few local jobs despite large capital investment, which can create political friction in communities hosting them.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Technological</div><div>Compute demand is driven by AI training and inference workloads — a rapidly evolving landscape. Infrastructure built today may need costly upgrades within 5 years.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Legal</div><div>Fund structuring, planning law, grid connection agreements, and data protection compliance all require specialist legal advice. The DMCC Act's new digital market powers may affect hyperscaler tenants.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Environmental</div><div>Data centres consume enormous amounts of electricity and water for cooling. ESG obligations on institutional investors require robust sustainability commitments from fund managers.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 3 -->
+  <div class="story-card">
+    <div class="story-meta">
+      <span class="story-tag">Regulation</span>
+      <span class="story-source">SRA / Legal Futures</span>
+      <span class="story-recency">Yesterday</span>
+    </div>
+    <div class="story-headline">SRA warns law firms over AI use in client work without adequate oversight</div>
+    <div class="story-summary">The Solicitors Regulation Authority issued updated guidance warning firms that using AI tools in client-facing work without adequate supervision and quality control may breach professional conduct rules. The SRA flagged risks around confidentiality, accuracy, and accountability, and reminded firms that regulatory obligations — including competence duties — apply regardless of whether work is AI-assisted.</div>
+    <button class="analysis-toggle" onclick="toggleAnalysis(this)"><span class="arrow">▶</span> Show SWOT &amp; PESTLE</button>
+    <div class="analysis-panel">
+      <div class="analysis-tabs">
+        <button class="atab-btn active" onclick="showAtab(this,'s3','swot')">SWOT</button>
+        <button class="atab-btn" onclick="showAtab(this,'s3','pestle')">PESTLE</button>
+      </div>
+      <div class="atab-panel active" id="s3-swot">
+        <div class="swot-grid">
+          <div class="swot-cell swot-s"><h4>Strengths</h4>Clear SRA guidance gives law firms a framework to build compliant AI policies around, reducing uncertainty. Firms that act early will have a competitive advantage in client trust.</div>
+          <div class="swot-cell swot-w"><h4>Weaknesses</h4>Many smaller firms lack the resources to implement robust AI governance frameworks. The guidance may slow AI adoption in the legal sector relative to less-regulated industries.</div>
+          <div class="swot-cell swot-o"><h4>Opportunities</h4>Legal technology consultancies and risk management practices will see surging demand. Firms that develop best-in-class AI governance can market this as a differentiator to clients.</div>
+          <div class="swot-cell swot-t"><h4>Threats</h4>Risk of regulatory action against early-adopter firms that moved fast on AI without adequate controls. Reputational damage from a high-profile AI error in client work could set back the whole sector.</div>
+        </div>
+      </div>
+      <div class="atab-panel" id="s3-pestle">
+        <div class="pestle-list">
+          <div class="pestle-row"><div class="pestle-label">Political</div><div>Government is simultaneously pushing AI adoption and calling for responsible use — law firms sit at the intersection of both pressures. The SRA's approach reflects the broader UK regulatory philosophy of sector-led, principles-based AI governance.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Economic</div><div>AI offers significant cost savings in legal work. Firms that delay adoption risk being undercut on fees by more efficient competitors. But non-compliance risks fines and reputational damage that outweigh efficiency gains.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Social</div><div>Clients increasingly expect law firms to use AI but also to stand behind the accuracy of their work. Trust is the central tension — clients want efficiency without sacrificing quality.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Technological</div><div>AI hallucination remains a material risk in legal drafting and research. Firms need robust review processes specifically designed to catch AI errors before they reach clients.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Legal</div><div>SRA Code of Conduct duties on competence, confidentiality, and supervision apply to AI-assisted work. Firms must update their risk frameworks, training programmes, and client engagement letters accordingly.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Environmental</div><div>No direct environmental dimension, though AI compute energy use is an emerging ESG concern for large law firms with sustainability commitments.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  3 JUNE TAB                                                -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="tab-jun3">
+<div class="container">
+  <div class="edition-header">
+    <div class="edition-label">Edition</div>
+    <div class="edition-date">Wednesday 3rd June 2026</div>
+  </div>
+
+  <!-- STORY 1 -->
+  <div class="story-card">
+    <div class="story-meta">
+      <span class="story-tag">Tech / IPO</span>
+      <span class="story-source">Fortune / CNBC</span>
+      <span class="story-recency">Today</span>
+    </div>
+    <div class="story-headline">Anthropic files confidentially for IPO at ~$965bn valuation</div>
+    <div class="story-summary">Anthropic, maker of Claude, submitted a draft S-1 to the SEC setting up a potential Wall Street debut that could value the company above $1 trillion. The filing follows a $65bn Series H round — overtaking rival OpenAI for the first time. Revenue run-rate hit ~$47bn in May 2026, up from ~$10bn a year earlier. Analysts called it an "opening of the floodgates" for a dormant IPO market, with SpaceX and OpenAI also preparing filings.</div>
+    <button class="analysis-toggle" onclick="toggleAnalysis(this)"><span class="arrow">▶</span> Show SWOT &amp; PESTLE</button>
+    <div class="analysis-panel">
+      <div class="analysis-tabs">
+        <button class="atab-btn active" onclick="showAtab(this,'a1','swot')">SWOT</button>
+        <button class="atab-btn" onclick="showAtab(this,'a1','pestle')">PESTLE</button>
+      </div>
+      <div class="atab-panel active" id="a1-swot">
+        <div class="swot-grid">
+          <div class="swot-cell swot-s"><h4>Strengths</h4>Explosive revenue growth (80x in under a year), safety-first brand positioning, and deep enterprise adoption across financial services, legal, and healthcare give Anthropic strong IPO fundamentals.</div>
+          <div class="swot-cell swot-w"><h4>Weaknesses</h4>Profitability not confirmed. Dual-mission structure (safety vs. commercial) may unsettle purely growth-focused public market investors accustomed to simpler narratives.</div>
+          <div class="swot-cell swot-o"><h4>Opportunities</h4>IPO proceeds fund compute expansion and M&amp;A. Law firms advising on disclosure obligations and US-UK cross-border listings — Allen &amp; Overy, Slaughter and May — stand to benefit enormously from the deal pipeline.</div>
+          <div class="swot-cell swot-t"><h4>Threats</h4>OpenAI filing immediately after could split investor appetite. Pentagon blacklisting of Anthropic models creates government contract risk. Bubble sentiment rising — analysts warn the 2026 window could become "the most expensive lesson in narrative-versus-fundamentals public markets have taught."</div>
+        </div>
+      </div>
+      <div class="atab-panel" id="a1-pestle">
+        <div class="pestle-list">
+          <div class="pestle-row"><div class="pestle-label">Political</div><div>US–China tech rivalry shapes investor appetite for AI. Anthropic's Pentagon dispute adds geopolitical risk to its government contracts pipeline — a material disclosure risk in the S-1.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Economic</div><div>Near-$1 trillion valuation at sub-3 years of significant revenue tests public market pricing discipline. A successful debut could unlock a wave of AI capital market activity; a stumble would chill the whole market.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Social</div><div>Public AI companies face far greater transparency obligations. Expect scrutiny of AI safety commitments, training data practices, and bias disclosures from civil society groups and institutional investors.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Technological</div><div>Claude competes directly with OpenAI, Google DeepMind, and Meta's Llama. The limited-release Mythos model signals a capability edge but amplifies safety and dual-use debates in the S-1 risk factors.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Legal</div><div>SEC review of the S-1 will subject Anthropic's revenue recognition, safety spending, and related-party deals (Amazon's $5bn commitment) to intense disclosure scrutiny. Wilson Sonsini is lead counsel.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Environmental</div><div>Large-scale AI inference is energy-intensive. Investors and ESG-focused funds will interrogate compute carbon footprint as part of the IPO prospectus review process.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 2 -->
+  <div class="story-card">
+    <div class="story-meta">
+      <span class="story-tag">Markets / IPO</span>
+      <span class="story-source">Reuters / Modern Diplomacy</span>
+      <span class="story-recency">Today</span>
+    </div>
+    <div class="story-headline">SpaceX launches roadshow for record $75bn IPO — listing June 12 at $1.75 trillion</div>
+    <div class="story-summary">SpaceX kicked off its investor roadshow today, targeting a June 12 Nasdaq listing (ticker: SPCX) at $135/share and a $1.75 trillion valuation — raising $75bn and shattering Saudi Aramco's $29.4bn IPO record. The company reported $18.67bn revenue in 2025 but a $4.94bn net loss. Starlink's 9 million+ subscribers are the primary profit engine. A dual-class share structure gives Elon Musk full voting control post-IPO.</div>
+    <button class="analysis-toggle" onclick="toggleAnalysis(this)"><span class="arrow">▶</span> Show SWOT &amp; PESTLE</button>
+    <div class="analysis-panel">
+      <div class="analysis-tabs">
+        <button class="atab-btn active" onclick="showAtab(this,'a2','swot')">SWOT</button>
+        <button class="atab-btn" onclick="showAtab(this,'a2','pestle')">PESTLE</button>
+      </div>
+      <div class="atab-panel active" id="a2-swot">
+        <div class="swot-grid">
+          <div class="swot-cell swot-s"><h4>Strengths</h4>Dominant position in commercial launch, government contracts, and satellite broadband. Starlink projected at $15–16bn revenue. Brand recognition and first-mover advantage in reusable rockets are near-impossible to replicate.</div>
+          <div class="swot-cell swot-w"><h4>Weaknesses</h4>Net losses persist despite strong revenue. Dual-class share structure concentrates control in Musk, raising governance red flags for institutional investors with voting rights mandates.</div>
+          <div class="swot-cell swot-o"><h4>Opportunities</h4>Record raise gives SpaceX capital to accelerate Starship commercialisation and expand Starlink globally. UK law firms advising institutional investors on roadshow participation and listing structure will generate significant fees.</div>
+          <div class="swot-cell swot-t"><h4>Threats</h4>Regulatory scrutiny of Musk's governance across multiple companies. Competition from Amazon Kuiper and state-backed rivals. Debuting alongside Anthropic and OpenAI could dilute investor appetite across all three listings.</div>
+        </div>
+      </div>
+      <div class="atab-panel" id="a2-pestle">
+        <div class="pestle-list">
+          <div class="pestle-row"><div class="pestle-label">Political</div><div>Musk's relationships with the Trump administration create both access advantages and reputational risk for institutional investors with ESG or political sensitivity mandates.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Economic</div><div>A $75bn raise injects massive liquidity into the IPO market. The listing is a bellwether for 2026 capital markets — success likely triggers more filings; failure creates a chilling effect on the whole pipeline.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Social</div><div>Public scepticism of Musk's multi-directional corporate empire may suppress retail investor demand relative to institutional. The xAI merger makes the corporate structure harder for ordinary investors to assess.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Technological</div><div>Starship reusability and satellite broadband are genuine technological moats. The xAI merger introduces AI infrastructure as a new revenue vertical with unclear near-term monetisation.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Legal</div><div>Dual-class structures face scrutiny from governance bodies (ISS, Glass Lewis). UK institutional shareholders — pension funds, insurers — must assess whether their mandates permit participation in non-standard governance IPOs.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Environmental</div><div>Rocket launches generate significant carbon emissions. As Starship commercialisation increases launch frequency, regulatory and ESG scrutiny of SpaceX's environmental footprint will intensify markedly.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 3 -->
+  <div class="story-card">
+    <div class="story-meta">
+      <span class="story-tag">Competition / Regulation</span>
+      <span class="story-source">CMA / Competition Law</span>
+      <span class="story-recency">Today</span>
+    </div>
+    <div class="story-headline">CMA takes mattress firm to court — first use of DMCC Act direct enforcement powers</div>
+    <div class="story-summary">The CMA's first use of its direct enforcement powers under the Digital Markets, Competition and Consumers Act 2024 begins in court today. The case concerns a mattress retailer accused since 2022 of misleading discount offers and urgency claims — countdown timers designed to pressure consumers into purchases. The firm refused to provide undertakings, making it the test case for fines of up to 10% of global turnover. The outcome will set precedents for all consumer-facing businesses operating online in the UK.</div>
+    <button class="analysis-toggle" onclick="toggleAnalysis(this)"><span class="arrow">▶</span> Show SWOT &amp; PESTLE</button>
+    <div class="analysis-panel">
+      <div class="analysis-tabs">
+        <button class="atab-btn active" onclick="showAtab(this,'a3','swot')">SWOT</button>
+        <button class="atab-btn" onclick="showAtab(this,'a3','pestle')">PESTLE</button>
+      </div>
+      <div class="atab-panel active" id="a3-swot">
+        <div class="swot-grid">
+          <div class="swot-cell swot-s"><h4>Strengths</h4>The CMA's willingness to litigate sends a strong deterrence signal. Fines of up to 10% of global turnover give the regulator meaningful leverage it previously lacked entirely.</div>
+          <div class="swot-cell swot-w"><h4>Weaknesses</h4>First use of a new statutory power before a court carries legal risk — any procedural misstep could set a restrictive precedent narrowing the CMA's future enforcement options.</div>
+          <div class="swot-cell swot-o"><h4>Opportunities</h4>Law firms specialising in consumer law, regulatory defence, and competition litigation — Linklaters, Herbert Smith Freehills, Travers Smith — will see a surge in instructions from online retailers reviewing their own practices.</div>
+          <div class="swot-cell swot-t"><h4>Threats</h4>If the CMA loses or the fine is significantly reduced on appeal, it could embolden non-compliance across the e-commerce sector and undermine the deterrent effect of the DMCCA entirely.</div>
+        </div>
+      </div>
+      <div class="atab-panel" id="a3-pestle">
+        <div class="pestle-list">
+          <div class="pestle-row"><div class="pestle-label">Political</div><div>The Starmer government has positioned consumer protection and digital regulation as economic growth levers, giving the CMA strong political backing to be assertive in its first enforcement actions.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Economic</div><div>Estimated billions in annual consumer detriment from dark patterns. Stricter enforcement raises compliance costs for e-commerce but should improve market trust and long-term competition.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Social</div><div>Pressure tactics disproportionately affect vulnerable consumers. Growing public awareness of dark patterns makes this a high-visibility case for consumer advocacy groups and media coverage.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Technological</div><div>Automated urgency timers and personalised discount systems are standard e-commerce tools. The judgment will determine the legal boundaries of their use across the entire sector.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Legal</div><div>This is the first live test of the DMCC Act's direct enforcement mechanism. The court's ruling on procedural requirements, evidence standards, and fine calculation will define how the CMA uses this power in all future cases.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Environmental</div><div>No direct environmental dimension, though the broader DMCCA framework includes sustainability-related consumer information requirements likely to feature in future enforcement rounds.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY 4 -->
+  <div class="story-card">
+    <div class="story-meta">
+      <span class="story-tag">Technology / Data Law</span>
+      <span class="story-source">ICO / Osborne Clarke</span>
+      <span class="story-recency">This week</span>
+    </div>
+    <div class="story-headline">Two-month sprint as EU AI Act high-risk deadline looms on 2 August 2026</div>
+    <div class="story-summary">With the EU AI Act's high-risk AI compliance deadline set for 2 August 2026, UK firms supplying the European market face urgent work on conformity assessments, risk management documentation, data governance, and human oversight requirements. Simultaneously, the Data (Use and Access) Act 2025 expanded legitimate use of automated processing in the UK — creating a growing divergence between UK and EU AI compliance frameworks that businesses operating in both markets must now navigate.</div>
+    <button class="analysis-toggle" onclick="toggleAnalysis(this)"><span class="arrow">▶</span> Show SWOT &amp; PESTLE</button>
+    <div class="analysis-panel">
+      <div class="analysis-tabs">
+        <button class="atab-btn active" onclick="showAtab(this,'a4','swot')">SWOT</button>
+        <button class="atab-btn" onclick="showAtab(this,'a4','pestle')">PESTLE</button>
+      </div>
+      <div class="atab-panel active" id="a4-swot">
+        <div class="swot-grid">
+          <div class="swot-cell swot-s"><h4>Strengths</h4>UK-based AI firms operating domestically benefit from a lighter-touch sector-led framework, giving a relative speed-to-market advantage over EU counterparts subject to the full AI Act regime.</div>
+          <div class="swot-cell swot-w"><h4>Weaknesses</h4>UK businesses supplying EU customers must comply with the full EU AI Act regardless — creating dual compliance burdens with no economies of scale for cross-border operators.</div>
+          <div class="swot-cell swot-o"><h4>Opportunities</h4>Law firms with AI regulatory practices — Bird &amp; Bird, Osborne Clarke, CMS — and compliance consultancies face surging demand. The ICO statutory code of practice will need specialist legal interpretation across every regulated sector.</div>
+          <div class="swot-cell swot-t"><h4>Threats</h4>Non-compliance with the EU AI Act carries fines of up to €30m or 6% of global turnover. UK-EU regulatory divergence could fragment the single market for AI products and disadvantage UK firms long-term.</div>
+        </div>
+      </div>
+      <div class="atab-panel" id="a4-pestle">
+        <div class="pestle-list">
+          <div class="pestle-row"><div class="pestle-label">Political</div><div>The UK government's sector-led approach deliberately avoids an AI-specific statute to attract investment. But the lack of a unified law creates uncertainty that the EU's more prescriptive framework does not.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Economic</div><div>Compliance costs are significant for SMEs developing high-risk AI. Larger firms can absorb costs but face competitive pressure if compliance timelines slip relative to non-EU competitors.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Social</div><div>Automated decision-making in hiring, lending, and healthcare requires transparent human oversight under both UK and EU frameworks. Societal trust in AI depends heavily on how these rules are enforced in practice.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Technological</div><div>High-risk AI includes systems in critical infrastructure, education, employment, credit, and justice — a wide range of commercial tools already in deployment that firms may not have mapped against the Act's categories.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Legal</div><div>Articles 22A–22D of the reformed UK GDPR govern automated decisions. The EU AI Act's Annex III categories define high-risk AI. Firms need to map their products against both frameworks simultaneously before August.</div></div>
+          <div class="pestle-row"><div class="pestle-label">Environmental</div><div>Conformity assessments and ongoing monitoring requirements will require data centres and compute providers to document energy consumption as part of product risk management under the Act.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<footer>Izzy's Commercial Awareness Briefing &mdash; updated daily &mdash; for personal use only</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  function toggleAnalysis(btn) {
+    btn.classList.toggle('open');
+    const panel = btn.nextElementSibling;
+    panel.classList.toggle('open');
+  }
+
+  function showAtab(btn, storyId, tab) {
+    const panel = btn.closest('.analysis-panel');
+    panel.querySelectorAll('.atab-btn').forEach(b => b.classList.remove('active'));
+    panel.querySelectorAll('.atab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(storyId + '-' + tab).classList.add('active');
+  }
+</script>
+</body>
+</html>
