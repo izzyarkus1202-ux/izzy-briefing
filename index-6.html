@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Izzy's Commercial Awareness Briefing – 4 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #1a1a1a;
+    --paper:     #faf8f3;
+    --rule:      #d4c9b0;
+    --accent:    #b5451b;
+    --accent2:   #2a5f8f;
+    --muted:     #6b6358;
+    --card-bg:   #ffffff;
+    --tag-m:     #e8f0f7;
+    --tag-m-txt: #2a5f8f;
+    --tag-e:     #fdf0ea;
+    --tag-e-txt: #b5451b;
+    --tag-l:     #eef7ee;
+    --tag-l-txt: #2d7a2d;
+    --tag-g:     #f5f0fa;
+    --tag-g-txt: #6b3fa0;
+    --tag-t:     #fff8e6;
+    --tag-t-txt: #9a6800;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    border-bottom: 2.5px solid var(--ink);
+    padding: 28px 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .masthead-left { display: flex; flex-direction: column; gap: 2px; }
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .site-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(26px, 4vw, 42px);
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .site-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .dateline {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .masthead-right {
+    text-align: right;
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .masthead-right strong { color: var(--ink); font-weight: 500; }
+
+  /* ── TICKER BAR ── */
+  .ticker-bar {
+    background: var(--ink);
+    color: #fff;
+    padding: 7px 40px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    display: flex;
+    gap: 28px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .ticker-item { display: flex; align-items: center; gap: 7px; }
+  .ticker-label { opacity: 0.55; text-transform: uppercase; font-size: 10px; letter-spacing: 0.12em; }
+  .tick-up { color: #5fd87e; }
+  .tick-dn { color: #ff7a6b; }
+  .tick-neu { color: #ffd166; }
+
+  /* ── SECTION DIVIDERS ── */
+  .section-bar {
+    padding: 22px 40px 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-bar span {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .section-bar hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0;
+  }
+
+  /* ── LEAD STORY ── */
+  .lead-wrap { padding: 18px 40px 0; }
+  .lead-card {
+    border: 2px solid var(--ink);
+    border-radius: 4px;
+    padding: 26px 28px;
+    background: var(--card-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 6px; height: 100%;
+    background: var(--accent);
+  }
+  .lead-kicker {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .lead-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(18px, 2.5vw, 26px);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .lead-body {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 14px;
+  }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .tag {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 3px 9px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .tag.macro { background: var(--tag-m); color: var(--tag-m-txt); }
+  .tag.economics { background: var(--tag-m); color: var(--tag-m-txt); }
+  .tag.energy  { background: var(--tag-e); color: var(--tag-e-txt); }
+  .tag.legal   { background: var(--tag-l); color: var(--tag-l-txt); }
+  .tag.global  { background: var(--tag-g); color: var(--tag-g-txt); }
+  .tag.trade   { background: var(--tag-t); color: var(--tag-t-txt); }
+  .tag.law-firms { background: var(--tag-l); color: var(--tag-l-txt); }
+  .tag.ma      { background: var(--tag-m); color: var(--tag-m-txt); }
+
+  .swot-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    transition: all 0.15s;
+  }
+  .swot-btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .swot-panel { display: none; margin-top: 16px; border-top: 1px solid var(--rule); padding-top: 14px; }
+  .swot-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+  .swot-tab {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 2px;
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    background: none;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.12s;
+  }
+  .swot-tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .swot-content { display: none; }
+  .swot-content.active { display: block; }
+
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .swot-box { padding: 11px 13px; border-radius: 3px; font-size: 13px; }
+  .swot-box h4 { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 5px; }
+  .swot-box.s { background: #e8f5e9; } .swot-box.s h4 { color: #2d7a2d; }
+  .swot-box.w { background: #fff3e0; } .swot-box.w h4 { color: #e65100; }
+  .swot-box.o { background: #e3f2fd; } .swot-box.o h4 { color: #1565c0; }
+  .swot-box.t { background: #fce4ec; } .swot-box.t h4 { color: #ad1457; }
+
+  .pestle-list { display: flex; flex-direction: column; gap: 7px; }
+  .pestle-item { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; }
+  .pestle-lbl {
+    min-width: 22px; height: 22px; border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.05em; flex-shrink: 0;
+  }
+  .pestle-lbl.P { background: #ede7f6; color: #4527a0; }
+  .pestle-lbl.E { background: #e3f2fd; color: #1565c0; }
+  .pestle-lbl.S { background: #e8f5e9; color: #2e7d32; }
+  .pestle-lbl.T { background: #fff8e1; color: #f57f17; }
+  .pestle-lbl.L { background: #fce4ec; color: #880e4f; }
+  .pestle-lbl.En{ background: #e0f2f1; color: #00695c; }
+  .pestle-item p { flex: 1; line-height: 1.5; color: #444; }
+
+  /* ── GRID CARDS ── */
+  .grid-wrap { padding: 16px 40px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 18px 18px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+  .card-headline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+  .card-body { font-size: 13.5px; color: #444; line-height: 1.65; flex: 1; }
+  .card-source { font-size: 10.5px; color: var(--muted); letter-spacing: 0.04em; margin-top: 4px; }
+  .card .swot-btn { font-size: 10.5px; padding: 4px 10px; margin-top: 4px; }
+
+  /* ── BY THE NUMBERS ── */
+  .numbers-wrap { padding: 0 40px 0; }
+  .numbers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .stat-box {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1.1;
+  }
+  .stat-label { font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 14px 40px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .masthead, .ticker-bar, .section-bar, .lead-wrap, .grid-wrap,
+    .numbers-wrap, footer { padding-left: 16px; padding-right: 16px; }
+    .swot-grid { grid-template-columns: 1fr; }
+    .masthead { flex-direction: column; align-items: flex-start; }
+    .masthead-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-left">
+    <span class="eyebrow">Commercial Awareness</span>
+    <h1 class="site-title"><em>Izzy's</em> Daily Briefing</h1>
+    <p class="dateline">Thursday, 4 June 2026</p>
+  </div>
+  <div class="masthead-right">
+    <strong>5 stories · 6 sources</strong><br>
+    Tariffs · Law Firms · UK Economy<br>
+    M&amp;A · Legal Profession · Global Trade
+  </div>
+</header>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-item"><span class="ticker-label">FTSE 100</span> 8,412 <span class="tick-up">▲ 0.4%</span></div>
+  <div class="ticker-item"><span class="ticker-label">GBP/USD</span> 1.274 <span class="tick-neu">—</span></div>
+  <div class="ticker-item"><span class="ticker-label">Bank Rate</span> 4.25% <span class="tick-dn">▼ hold</span></div>
+  <div class="ticker-item"><span class="ticker-label">CPI</span> 3.1% <span class="tick-dn">above target</span></div>
+  <div class="ticker-item"><span class="ticker-label">GDP (OBR)</span> +1.1% <span class="tick-neu">2026 forecast</span></div>
+  <div class="ticker-item"><span class="ticker-label">Unemployment</span> 5.0% <span class="tick-dn">rising</span></div>
+</div>
+
+<!-- SECTION: LEAD -->
+<div class="section-bar"><span>Lead Story</span><hr></div>
+<div class="lead-wrap">
+  <div class="lead-card">
+    <span class="lead-kicker">🌍 Global Trade</span>
+    <h2 class="lead-headline">Trump Proposes 'Forced Labour' Tariffs on UK &amp; 59 Other Countries</h2>
+    <div class="tag-row">
+      <span class="tag trade">Trade</span>
+      <span class="tag global">Global</span>
+      <span class="tag macro">Macro</span>
+    </div>
+    <p class="lead-body">
+      The Trump administration announced proposed tariffs of between 10% and 12.5% on 60 countries — including the UK, EU, Canada, Japan, Norway and Taiwan — alleging their failure to crack down on imports made with forced labour. Under the plan, the UK falls into a lower 10% band, reflecting some acknowledgement that it is taking steps on forced labour, while most other nations face 12.5%. The move comes under Section 301 of the 1974 Trade Act and is designed to rebuild tariff pressure after the US Supreme Court struck down Trump's "liberation day" tariffs as illegal in February, and after a US trade court also ruled his subsequent blanket 10% tariffs unlawful (though both remain in effect pending appeals). The EU has already pushed back, insisting the US must honour the July tariff agreement previously struck. The proposed tariffs still face a comment period before taking effect.
+    </p>
+    <button class="swot-btn" onclick="toggleSwot(this)">&#9654; SWOT &amp; PESTLE</button>
+    <div class="swot-panel">
+      <div class="swot-tabs">
+        <button class="swot-tab active" onclick="switchTab(this,'swot')">SWOT</button>
+        <button class="swot-tab" onclick="switchTab(this,'pestle')">PESTLE</button>
+      </div>
+      <div class="swot-content active" data-tab="swot">
+        <div class="swot-grid">
+          <div class="swot-box s"><h4>Strength</h4>UK's placement in the lower 10% band signals relatively better standing with Washington, preserving some trade goodwill compared to harder-hit nations.</div>
+          <div class="swot-box w"><h4>Weakness</h4>UK businesses, especially in manufacturing and retail, face renewed cost and supply chain uncertainty just as inflation is still above the Bank of England's 2% target.</div>
+          <div class="swot-box o"><h4>Opportunity</h4>Law firms advising on trade compliance, supply chain due diligence and sanctions will see a surge in demand from UK and multinational clients navigating the new tariff landscape.</div>
+          <div class="swot-box t"><h4>Threat</h4>If appeals fail and tariffs are sustained or escalated, UK exporters face a meaningful competitive disadvantage in the world's largest consumer market, deepening the UK's already subdued 1.1% GDP growth outlook.</div>
+        </div>
+      </div>
+      <div class="swot-content" data-tab="pestle">
+        <div class="pestle-list">
+          <div class="pestle-item"><span class="pestle-lbl P">P</span><p>Puts pressure on Keir Starmer's government, which has been pursuing a warmer US relationship; forces a delicate diplomatic balancing act between Washington and the EU.</p></div>
+          <div class="pestle-item"><span class="pestle-lbl E">E</span><p>Further tariff exposure compounds the UK's energy-shock-driven inflation, risking stagflation if import costs rise and household spending remains squeezed.</p></div>
+          <div class="pestle-item"><span class="pestle-lbl S">S</span><p>Forced labour framing creates public scrutiny of UK supply chains, particularly in fashion, electronics and agriculture — sectors with known exposure to global labour abuses.</p></div>
+          <div class="pestle-item"><span class="pestle-lbl T">T</span><p>Creates demand for traceability technology and supply chain audit tools that can demonstrate forced-labour-free sourcing to regulators and trading partners.</p></div>
+          <div class="pestle-item"><span class="pestle-lbl L">L</span><p>Significant legal work in trade remedies, WTO dispute mechanisms, and Section 301 compliance advisory; UK Modern Slavery Act obligations also come into sharper focus.</p></div>
+          <div class="pestle-item"><span class="pestle-lbl En">En</span><p>Tariffs targeting goods with opaque supply chains may indirectly incentivise shorter, more localised supply chains — a net positive for UK reshoring and greener logistics.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BY THE NUMBERS -->
+<div class="section-bar" style="padding-top:20px;"><span>By The Numbers</span><hr></div>
+<div class="numbers-wrap">
+  <div class="numbers-grid">
+    <div class="stat-box"><div class="stat-num">60</div><div class="stat-label">Countries hit by proposed forced labour tariffs</div></div>
+    <div class="stat-box"><div class="stat-num">10%</div><div class="stat-label">Proposed tariff rate for UK (lower band)</div></div>
+    <div class="stat-box"><div class="stat-num">1.1%</div><div class="stat-label">UK GDP growth forecast (OBR, 2026)</div></div>
+    <div class="stat-box"><div class="stat-num">3.1%</div><div class="stat-label">UK CPI inflation (latest reading)</div></div>
+    <div class="stat-box"><div class="stat-num">5.0%</div><div class="stat-label">UK unemployment rate (Q1 2026)</div></div>
+    <div class="stat-box"><div class="stat-num">£129bn</div><div class="stat-label">Government borrowing in 2025/26</div></div>
+  </div>
+</div>
+
+<!-- SECTION: MORE STORIES -->
+<div class="section-bar" style="padding-top:22px;"><span>More Stories</span><hr></div>
+<div class="grid-wrap">
+  <div class="grid">
+
+    <!-- CARD 1: BCLP NQ Pay -->
+    <div class="card">
+      <div class="tag-row"><span class="tag law-firms">Law Firms</span><span class="tag legal">Legal Profession</span></div>
+      <h3 class="card-headline">BCLP Raises NQ Salaries to £125,000 in London</h3>
+      <p class="card-body">Bryan Cave Leighton Paisner has confirmed its newly qualified solicitors in London now earn £125,000 — a nearly 9% rise from the previous £115,000 — effective January 2026. The move puts BCLP level with Reed Smith and £5,000 ahead of CMS and Simmons &amp; Simmons. Magic Circle firms remain at £150,000 (after Freshfields sparked a pay war last year), while Silver Circle peer HSF Kramer sits at £145,000. Trainee salaries also rose, with first-years now earning £55,000 and second-years £58,000.</p>
+      <p class="card-source">Source: Legal Cheek · Law360</p>
+      <button class="swot-btn" onclick="toggleSwot(this)">&#9654; SWOT &amp; PESTLE</button>
+      <div class="swot-panel">
+        <div class="swot-tabs">
+          <button class="swot-tab active" onclick="switchTab(this,'swot')">SWOT</button>
+          <button class="swot-tab" onclick="switchTab(this,'pestle')">PESTLE</button>
+        </div>
+        <div class="swot-content active" data-tab="swot">
+          <div class="swot-grid">
+            <div class="swot-box s"><h4>Strength</h4>Competitive salaries help BCLP attract and retain top talent in a tight London legal market, reinforcing its position as a serious City player.</div>
+            <div class="swot-box w"><h4>Weakness</h4>Rising NQ pay compresses salary bands across the associate ranks ("bunching"), creating internal equity pressures and higher overall cost bases.</div>
+            <div class="swot-box o"><h4>Opportunity</h4>As the Silver Circle closes the gap on the Magic Circle in pay, BCLP can pitch itself as offering comparable remuneration with potentially better work-life balance or culture.</div>
+            <div class="swot-box t"><h4>Threat</h4>Escalating pay wars are unsustainable if deal flow slows; firms with high fixed cost bases face difficult decisions if the M&amp;A market cools again.</div>
+          </div>
+        </div>
+        <div class="swot-content" data-tab="pestle">
+          <div class="pestle-list">
+            <div class="pestle-item"><span class="pestle-lbl P">P</span><p>No immediate regulatory angle, though SRA scrutiny of firm governance and partner conduct is ongoing (SRA appealed a recent harassment-related ruling).</p></div>
+            <div class="pestle-item"><span class="pestle-lbl E">E</span><p>Higher NQ salaries reflect buoyant demand for legal talent, driven by strong deal pipelines in M&amp;A, private equity and regulatory advisory.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl S">S</span><p>Growing public attention on law firm working conditions and pay transparency following widely reported issues at major firms; high salaries attract scrutiny over work-life balance.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl T">T</span><p>AI tools are beginning to automate junior legal tasks; rising salaries create pressure to demonstrate the ROI of human NQs over AI-assisted drafting and research.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl L">L</span><p>Employment law considerations around equal pay reviews across associate ranks as firms lift NQ rates without proportionally increasing senior associate pay.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl En">En</span><p>No direct environmental dimension, though some firms tie retention to ESG credentials and pro bono commitments alongside salary.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: RPC Revenue -->
+    <div class="card">
+      <div class="tag-row"><span class="tag law-firms">Law Firms</span><span class="tag economics">Economics</span></div>
+      <h3 class="card-headline">RPC Approaches £200m Revenue After 11% Annual Rise</h3>
+      <p class="card-body">Reynolds Porter Chamberlain reported revenue climbing by double digits to just under £200 million, with a strong performance across the firm described as one of its best increases in a decade. The result reflects RPC's expansion beyond its traditional insurance and reinsurance stronghold into broader commercial and technology practices. The milestone follows consistent growth from £172m in FY2024 and places RPC firmly in the mid-tier of the UK legal market.</p>
+      <p class="card-source">Source: Law360 · Legal Futures</p>
+      <button class="swot-btn" onclick="toggleSwot(this)">&#9654; SWOT &amp; PESTLE</button>
+      <div class="swot-panel">
+        <div class="swot-tabs">
+          <button class="swot-tab active" onclick="switchTab(this,'swot')">SWOT</button>
+          <button class="swot-tab" onclick="switchTab(this,'pestle')">PESTLE</button>
+        </div>
+        <div class="swot-content active" data-tab="swot">
+          <div class="swot-grid">
+            <div class="swot-box s"><h4>Strength</h4>Double-digit growth in a challenging macro environment demonstrates RPC's sector diversification strategy — insurance + TMT + commercial — is paying off.</div>
+            <div class="swot-box w"><h4>Weakness</h4>Approaching £200m but still meaningfully below the Silver Circle; scale constraints could limit competitiveness on the very largest mandates.</div>
+            <div class="swot-box o"><h4>Opportunity</h4>Strong financials make RPC an attractive M&amp;A target or merger partner as the market for transatlantic and PE-backed law firm consolidation intensifies.</div>
+            <div class="swot-box t"><h4>Threat</h4>Mid-tier firms face a squeeze from below (PE-backed consolidators) and above (Silver/Magic Circle expanding into RPC's practice areas), potentially eroding margin.</div>
+          </div>
+        </div>
+        <div class="swot-content" data-tab="pestle">
+          <div class="pestle-list">
+            <div class="pestle-item"><span class="pestle-lbl P">P</span><p>Regulatory advisory demand remains strong as UK government continues to introduce new compliance regimes (financial services, ESG, data).</p></div>
+            <div class="pestle-item"><span class="pestle-lbl E">E</span><p>Litigation-heavy practices benefit from an economic environment with elevated insolvency, disputes and insurance claims as businesses face cost pressures.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl S">S</span><p>Growing client demand for law firms with visible D&I credentials and community footprint — RPC's multi-office model (London, Bristol, HK, Singapore) broadens its talent and client reach.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl T">T</span><p>TMT sector focus means RPC is well-placed to capitalise on AI and data-related disputes, cyber insurance, and technology transactions.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl L">L</span><p>Insurance and reinsurance expertise highly sought after as climate-related losses and supply chain disruptions generate more complex claims and coverage disputes.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl En">En</span><p>Growing climate litigation practice positions RPC to advise both corporates and insurers on the escalating volume of ESG-related disputes.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: PE Investment in Law Firms -->
+    <div class="card">
+      <div class="tag-row"><span class="tag law-firms">Law Firms</span><span class="tag ma">M&amp;A</span></div>
+      <h3 class="card-headline">Private Equity Pours £250m into UK Law Firms in 2025; Deal Volume Up Sharply in 2026</h3>
+      <p class="card-body">Private equity invested an estimated £250 million into UK law firms across 2025 — down from the record £534m seen in 2024, but with deal volume in 2026 running sharply ahead of last year. Higgs, a Black Country firm backed by August Equity, made its second acquisition since its PE buyout, illustrating the platform roll-up strategy now common in the UK legal market. The Fladgate firm also crossed £100m in revenue and £1m partner profits for the first time, driven by a pivot toward private capital clients.</p>
+      <p class="card-source">Source: Legal Futures · Consultancy.uk</p>
+      <button class="swot-btn" onclick="toggleSwot(this)">&#9654; SWOT &amp; PESTLE</button>
+      <div class="swot-panel">
+        <div class="swot-tabs">
+          <button class="swot-tab active" onclick="switchTab(this,'swot')">SWOT</button>
+          <button class="swot-tab" onclick="switchTab(this,'pestle')">PESTLE</button>
+        </div>
+        <div class="swot-content active" data-tab="swot">
+          <div class="swot-grid">
+            <div class="swot-box s"><h4>Strength</h4>PE-backed law firms gain access to capital for technology, recruitment and geographic expansion that traditional partnership models restrict.</div>
+            <div class="swot-box w"><h4>Weakness</h4>Tension between PE return expectations and solicitors' professional duties; risk that profit maximisation compromises client service or ethical standards.</div>
+            <div class="swot-box o"><h4>Opportunity</h4>Consolidation creates regional legal champions able to compete with City firms on price and relationships — opening new client segments.</div>
+            <div class="swot-box t"><h4>Threat</h4>Regulators (SRA) increasingly concerned about PE's impact on law firm culture and compliance, flagging potential "regulatory blind spots" in referral fee arrangements.</div>
+          </div>
+        </div>
+        <div class="swot-content" data-tab="pestle">
+          <div class="pestle-list">
+            <div class="pestle-item"><span class="pestle-lbl P">P</span><p>UK's Alternative Business Structure (ABS) regime enables PE ownership of law firms — a structural advantage over many jurisdictions, attracting foreign capital.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl E">E</span><p>PE investment supports law firm growth in a tight credit environment and provides a route for founding partners to extract value without a full trade sale.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl S">S</span><p>Roll-up strategies raise questions about local community ties and whether PE-owned firms retain the firm culture and partner relationships that clients value.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl T">T</span><p>PE investors typically require technology investment as a condition — driving faster adoption of AI legal tools, case management platforms and pricing software.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl L">L</span><p>SRA flagging "regulatory blind spots" in referral fee documentation is a direct legal risk for ABS law firms; compliance frameworks need strengthening.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl En">En</span><p>Minimal direct environmental dimension, though ESG reporting requirements for PE portfolio companies are tightening under new FCA guidelines.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4: Transatlantic Mergers -->
+    <div class="card">
+      <div class="tag-row"><span class="tag ma">M&amp;A</span><span class="tag law-firms">Law Firms</span></div>
+      <h3 class="card-headline">Wave of Transatlantic Law Firm Mergers Continues: Winston Taylor &amp; Ashurst-Perkins Coie</h3>
+      <p class="card-body">The transatlantic law firm merger wave shows no sign of abating. Winston &amp; Strawn and Taylor Wessing combined in May 2026 as "Winston Taylor," creating a 1,400-lawyer firm with $1.75bn in estimated combined revenue. Meanwhile, Ashurst and Perkins Coie are set to merge into a 3,000-lawyer firm (expected Q3 2026), following the Herbert Smith Freehills–Kramer Levin tie-up earlier this year. A Citigroup/Hildebrandt report attributed the consolidation drive to modest demand growth and increasing cost pressures.</p>
+      <p class="card-source">Source: Asian Legal Business · Skadden</p>
+      <button class="swot-btn" onclick="toggleSwot(this)">&#9654; SWOT &amp; PESTLE</button>
+      <div class="swot-panel">
+        <div class="swot-tabs">
+          <button class="swot-tab active" onclick="switchTab(this,'swot')">SWOT</button>
+          <button class="swot-tab" onclick="switchTab(this,'pestle')">PESTLE</button>
+        </div>
+        <div class="swot-content active" data-tab="swot">
+          <div class="swot-grid">
+            <div class="swot-box s"><h4>Strength</h4>Scale enables firms to serve global clients on multi-jurisdictional transactions without relying on referral networks, creating stickier client relationships and higher revenues per matter.</div>
+            <div class="swot-box w"><h4>Weakness</h4>Cultural integration between US and UK partnership structures is notoriously difficult; lockstep vs eat-what-you-kill compensation models are a frequent source of post-merger friction.</div>
+            <div class="swot-box o"><h4>Opportunity</h4>Combined platforms can aggressively pursue cross-border M&amp;A, capital markets and regulatory mandates at the expense of standalone mid-tier competitors.</div>
+            <div class="swot-box t"><h4>Threat</h4>Large merged firms face partner attrition if integration is handled poorly; competitor firms can poach disaffected partners and teams during the vulnerability window post-merger.</div>
+          </div>
+        </div>
+        <div class="swot-content" data-tab="pestle">
+          <div class="pestle-list">
+            <div class="pestle-item"><span class="pestle-lbl P">P</span><p>US-UK firm mergers are largely unaffected by Brexit thanks to England &amp; Wales retaining its position as a leading seat for international arbitration and commercial litigation.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl E">E</span><p>Consolidation is driven partly by cost pressure: larger platforms spread fixed costs (technology, real estate, support functions) more efficiently.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl S">S</span><p>Mega-mergers raise diversity and inclusion questions as large combined leadership teams can skew toward established, predominantly male senior partner cohorts.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl T">T</span><p>Scale brings resources to invest heavily in AI and legal tech — combined firms can build proprietary platforms that smaller rivals cannot afford.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl L">L</span><p>Mergers require partnership votes and regulatory approvals; any competition law issues (rare in professional services) could delay or block combinations.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl En">En</span><p>Larger firms have greater leverage to impose supply chain and ESG standards on clients, advisers and vendors — and face greater scrutiny of their own carbon footprints.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5: UK Economy Snapshot -->
+    <div class="card">
+      <div class="tag-row"><span class="tag economics">Economics</span><span class="tag macro">Macro</span></div>
+      <h3 class="card-headline">UK Economy: Inflation Above Target, Unemployment Rising, Borrowing Down</h3>
+      <p class="card-body">The latest UK economic indicators present a mixed picture. CPI stands at 3.1% — above the Bank of England's 2% target — with inflation forecast to peak at 3.5–4% later in 2026 as the Middle East energy shock feeds through. The unemployment rate reached 5.0% in Q1 2026 (up 192,000 year-on-year), partly reflecting the April 2025 National Insurance increase on employers. Government borrowing for 2025/26 came in at £129bn — £23bn below the prior year. Consumer confidence improved slightly in May but remains deeply negative at -23 (GfK).</p>
+      <p class="card-source">Source: House of Commons Library · ONS · IMF</p>
+      <button class="swot-btn" onclick="toggleSwot(this)">&#9654; SWOT &amp; PESTLE</button>
+      <div class="swot-panel">
+        <div class="swot-tabs">
+          <button class="swot-tab active" onclick="switchTab(this,'swot')">SWOT</button>
+          <button class="swot-tab" onclick="switchTab(this,'pestle')">PESTLE</button>
+        </div>
+        <div class="swot-content active" data-tab="swot">
+          <div class="swot-grid">
+            <div class="swot-box s"><h4>Strength</h4>Reduced government borrowing improves the UK's fiscal headroom and signals some spending discipline, which could restore market confidence over time.</div>
+            <div class="swot-box w"><h4>Weakness</h4>Persistent above-target inflation combined with rising unemployment creates a stagflationary pressure that limits the Bank of England's ability to cut rates.</div>
+            <div class="swot-box o"><h4>Opportunity</h4>If energy prices stabilise in H2 2026, inflation could fall rapidly, opening scope for rate cuts that would unlock dealmaking and corporate investment.</div>
+            <div class="swot-box t"><h4>Threat</h4>New US tariffs, combined with the energy shock and weak consumer confidence, risk pushing the UK into a technical recession if GDP growth undershoots the OBR's already-modest 1.1% forecast.</div>
+          </div>
+        </div>
+        <div class="swot-content" data-tab="pestle">
+          <div class="pestle-list">
+            <div class="pestle-item"><span class="pestle-lbl P">P</span><p>The Starmer government faces pressure on both fiscal rules and growth — any further deterioration in economic data will intensify political challenges heading into the next Budget.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl E">E</span><p>Energy shock is the dominant macro theme — UK gas dependency means inflation and growth are highly sensitive to Middle East geopolitical developments.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl S">S</span><p>Cooling real wage growth (wages up 3.4% vs CPI 3.1% = only 0.3% real increase) squeezes household budgets, disproportionately impacting lower-income workers.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl T">T</span><p>AI and automation investment continues despite the weak macro backdrop — technology may be a rare bright spot driving productivity improvements in professional services.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl L">L</span><p>Rising unemployment and employer NI costs generate increased employment law work: redundancy, restructuring, and unfair dismissal claims are likely to increase.</p></div>
+            <div class="pestle-item"><span class="pestle-lbl En">En</span><p>Energy price volatility accelerates the economic case for renewable transition, though capital constraints may delay near-term clean energy investment.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>Izzy's Commercial Awareness Daily Briefing &middot; 4 June 2026</span>
+  <span>Sources: City AM · CBS News · Legal Cheek · Law360 · Legal Futures · House of Commons Library · ONS · IMF. Always verify with original sources.</span>
+</footer>
+
+<script>
+  function toggleSwot(btn) {
+    const panel = btn.nextElementSibling;
+    const open = panel.style.display === 'block';
+    panel.style.display = open ? 'none' : 'block';
+    btn.innerHTML = open
+      ? '&#9654; SWOT &amp; PESTLE'
+      : '&#9660; SWOT &amp; PESTLE';
+  }
+
+  function switchTab(btn, tab) {
+    const panel = btn.closest('.swot-panel');
+    panel.querySelectorAll('.swot-tab').forEach(t => t.classList.remove('active'));
+    panel.querySelectorAll('.swot-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    panel.querySelector(`.swot-content[data-tab="${tab}"]`).classList.add('active');
+  }
+</script>
+</body>
+</html>
